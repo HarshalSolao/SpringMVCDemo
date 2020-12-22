@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+<title>Home</title>
+</head>
+<body>
+
+	<div style="text-align: center;">
+		<h2 style="color: darkblue;">Welcome to My Servlet App</h2>
+	</div>
+	<h2>
+		Current Server Date is : <span th:text="${serverTime}"></span>
+	</h2>
+	<a class="btn btn-danger" th:href="@{/login/otpform}">OTP</a>
+	<div style="float: right;">
+		<a class="btn btn-primary" th:href="@{/welcome/signin}">Sign In</a> <span> || </span> <a href="signup">Sign Up</a>
+	</div>
+	<br>
+	<br>
+	<h4>Upload Single File:</h4>
+	<form method="POST" enctype="multipart/form-data" th:action="@{/welcome/upload-file}">
+		<input type="file" name="file"> <br />
+		<br />
+		<button type="submit">Submit</button>
+	</form>
+
+	<hr />
+	
+	<hr>
+	<h2>All Uploaded Files:</h2>
+	<ul>
+		<li th:each="file : ${files}"><a th:href="${file}"
+			target="_blank" th:text="${file}"></a></li>
+	</ul>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" type="image/png" th:href="@{/img/favicon.ico}" />
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+<title>Sign IN</title>
+</head>
+<body>
+	<h2>Sign In</h2>
+	<h2>
+		Current Server Date is : <span th:text="${serverTime}"></span>
+	</h2>
+	<
+	<hr>
+	<div>
+		<form th:action="@{/welcome/save}" th:object="${user}" method="post">
+			<label>User Name :</label> <input type="text" name="uname"><br>
+			<label>Password :</label> <input type="password" name="pass"><br>
+			<input type="submit" class="btn btn-primary" value="Submit">
+		</form>
+
+		<br>
+		<hr>
+		<table>
+			<tbody>
+				<tr th:each="user: ${userList}">
+
+
+					<td th:text="${user.uname}" />
+
+					<td><span th:if="${user.pass} == 'M'" th:text="Male"></span> 
+					<span th:unless="${user.pass} == 'M'" th:text="Female"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<img alt="My Image" th:src="@{/img/undraw_Payments_re_77x0.svg}"
+			height="200px" width="300px">
+	</div>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>
