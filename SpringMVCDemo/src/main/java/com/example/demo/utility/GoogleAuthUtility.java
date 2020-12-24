@@ -35,5 +35,7 @@ public class GoogleAuthUtility {
 	public boolean authenticated(String secretKey, int otp) {
 		return gAuth.authorize(secretKey, otp);
 	}
+	
+	public void show() {}
 
 }
